@@ -39,11 +39,20 @@ model.add(Dense(10, activation="softmax", kernel_initializer="normal"))
 model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
 print(model.summary())
 
+# Save architecture
+model_json = model.to_json()
+json_file = open("mnist_model.json", "w")
+json_file.write(model_json)
+json_file.close()
+
 # Обучаем сеть
 # epochs 125 the best
 # batch size 400
 # Dense  -
 model.fit(X_train, Y_train, batch_size=400, epochs=125, validation_split=0.2, verbose=2)
+
+# Save learning data
+model.save_weights("mnist_model.h5")
 
 # Оцениваем качество обучения сети на тестовых данных
 scores = model.evaluate(X_test, Y_test, verbose=0)
