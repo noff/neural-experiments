@@ -9,7 +9,6 @@ from keras.models import model_from_json
 # Устанавливаем seed для повторяемости результатов
 numpy.random.seed(42)
 
-
 # Загружаем данные
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
