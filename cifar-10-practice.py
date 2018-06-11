@@ -17,7 +17,7 @@ batch_size = 32
 # Количество классов изображений
 nb_classes = 10
 # Количество эпох для обучения
-nb_epoch = 25
+nb_epoch = 30
 # Размер изображений
 img_rows, img_cols = 32, 32
 # Количество каналов в изображении: RGB
@@ -53,6 +53,7 @@ model.add(Conv2D(64, (3, 3), activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 # Слой регуляризации Dropout
 model.add(Dropout(0.25))
+
 # Слой преобразования данных из 2D представления в плоское
 model.add(Flatten())
 # Полносвязный слой для классификации
@@ -83,12 +84,12 @@ print("Точность работы на тестовых данных: %.2f%%"
 # lr=0.01 - 75.04%
 # lr=0.02 - 10%
 # lr=0.05 - 10%
-# lr=0.1
+# lr=0.1 - 10%
 
-# nb_epoch = 25
-# nb_epoch = 15
-# nb_epoch = 20
-# nb_epoch = 30
+# nb_epoch = 25 = 75.04%
+# nb_epoch = 15 = 75.55% over learning
+# nb_epoch = 20 = 75.95% over learning
+# nb_epoch = 30 = 77.03% over learning
 
-# Layers - full list
-# Layers without second cascade
+# Layers - full list = 77.03%
+# Layers without second cascade = 70.48%
