@@ -13,11 +13,11 @@ numpy.random.seed(42)
 # Загружаем данные
 (X_train, y_train), (X_test, y_test) = cifar10.load_data()
 # Размер мини-выборки
-batch_size = 32
+batch_size = 100
 # Количество классов изображений
 nb_classes = 10
 # Количество эпох для обучения
-nb_epoch = 30
+nb_epoch = 40
 # Размер изображений
 img_rows, img_cols = 32, 32
 # Количество каналов в изображении: RGB
