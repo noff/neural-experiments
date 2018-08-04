@@ -88,3 +88,12 @@ model.fit(features_train, labels_train,
 
 scores = model.evaluate(features_test, labels_test, verbose=1)
 print("Аккуратность на тестовых данных: %.2f%%" % (scores[1]*100))
+
+
+# Save architecture
+model_json = model.to_json()
+json_file = open("cats_features.json", "w")
+json_file.write(model_json)
+json_file.close()
+
+model.save_weights("cats_features.h5")
