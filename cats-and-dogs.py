@@ -40,8 +40,6 @@ for layer in vgg16_net.layers:
         trainable = True
     layer.trainable = trainable
 
-model.summary()
-
 # Compile
 model.compile(loss='binary_crossentropy',
               optimizer=Adam(lr=1e-5),
@@ -72,7 +70,7 @@ test_generator = datagen.flow_from_directory(
 model.fit_generator(
     train_generator,
     steps_per_epoch=nb_train_samples // batch_size,
-    epochs=10,
+    epochs=2,
     validation_data=val_generator,
     validation_steps=nb_validation_samples // batch_size)
 
